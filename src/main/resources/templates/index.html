@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<h2>Hello World !!</h2>
+<h1 style="margin-bottom: 30px;"><span class="label label-danger loading" th:text="${entities}"></span></h1>
+
+<h2>Users</h2>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>testint</th>
+        <th>testring</th>
+    </tr>
+    <tr th:each = "entity: ${lista}">
+        <td th:text="${entity.id}"></td>
+
+        <td th:text="${entity.testint}"></td>
+        <td th:text="${entity.teststring}"></td>
+    </tr>
+</table>
+
+
+
+</body>
+</html>
