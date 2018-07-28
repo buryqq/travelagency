@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add</title>
+    <title>Add city</title>
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
 </head>
 <body>
 
-<h2>Add data:</h2>
+<h2>Add city data:</h2>
 <div class="container">
-    <form method="post" th:action="@{/add}" th:object="${Testmodel}">
-        <label>int:</label><input type="text" th:field="*{testint}"/><br/>
-        <label>string:</label><input type="text" th:field="*{teststring}"/><br/>
+    <form method="post" th:action="@{/cityadd}" th:object="${cityModel}">
+        <label>name:</label><input type="text" th:field="*{name}"/><br/>
+        <label>countryid:</label><input type="text" th:field="*{countryid}"/><br/>
         <input type="submit" value="Add"/>
     </form>
 </div>

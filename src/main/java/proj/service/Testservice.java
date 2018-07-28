@@ -13,18 +13,12 @@ import java.util.List;
 @Service
 public class Testservice {
 
-
-
-
 @Autowired
 private Testrepository testrepository;
-
-
 
     public List<Testmodel> getAll() {
 
         return testrepository.findAll();
-
 
     }
 

@@ -18,12 +18,22 @@ private String cityTo;
 private Date departureDate;
 private Date returnDate;
 private int countOfDays;
-private enum type {BB,HB,FB,AI};
+private enum Type {BB,HB,FB,AI};
+private Type type;
 private double priceForAdult;
 private double priceForChild;
 private boolean promotion;
 private int countOfPeople;
 private String description;
+
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
 
     public Long getId() {
         return id;
@@ -129,7 +139,8 @@ private String description;
         this.description = description;
     }
 
-    public Trip(Long id, String airportFrom, String airportTo, String hotelTo, String cityTo, Date departureDate, Date returnDate, int countOfDays, double priceForAdult, double priceForChild, boolean promotion, int countOfPeople, String description) {
+
+    public Trip(Long id, String airportFrom, String airportTo, String hotelTo, String cityTo, Date departureDate, Date returnDate, int countOfDays, Type type, double priceForAdult, double priceForChild, boolean promotion, int countOfPeople, String description) {
         this.id = id;
         this.airportFrom = airportFrom;
         this.airportTo = airportTo;
@@ -138,6 +149,7 @@ private String description;
         this.departureDate = departureDate;
         this.returnDate = returnDate;
         this.countOfDays = countOfDays;
+        this.type = type;
         this.priceForAdult = priceForAdult;
         this.priceForChild = priceForChild;
         this.promotion = promotion;

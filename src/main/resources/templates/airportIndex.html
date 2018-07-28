@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<h2>Airports!!</h2>
+<h1 style="margin-bottom: 30px;"><span class="label label-danger loading" th:text="${airportEntities}"></span></h1>
+
+<h2>Airports</h2>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>cityid</th>
+    </tr>
+    <tr th:each = "airportEntity: ${airportList}">
+        <td th:text="${airportEntity.id}"></td>
+
+        <td th:text="${airportEntity.name}"></td>
+        <td th:text="${airportEntity.cityid.name}"></td>
+    </tr>
+</table>
+
+
+
+</body>
+</html>

@@ -1,49 +1,26 @@
 package proj.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Data
 public class City {
 
     @Id
     @GeneratedValue
    private Long id;
    private String name;
-   private Long countryid;
 
-    public Long getCountryid() {
-        return countryid;
-    }
 
-    public void setCountryid(Long countryid) {
-        this.countryid = countryid;
-    }
+   @OneToMany(mappedBy = "cityid")
+   private List<Airport> airports;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    private Country countryid;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public City(Long id, String name, Long countryid) {
-        this.id = id;
-        this.name = name;
-        this.countryid = countryid;
-    }
-
-    public City() {
-    }
 
 }

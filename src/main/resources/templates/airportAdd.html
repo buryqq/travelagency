@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add airport</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<h2>Add airport data:</h2>
+<div class="container">
+    <form method="post" th:action="@{/airportadd}" th:object="${airportModel}">
+        <label>name:</label><input type="text" th:field="*{name}"/><br/>
+        <!--<label>city:</label><input type="text" th:field="*{cityid}"/><br/>-->
+        <input type="submit" value="Add"/>
+
+
+        <div class="form-group blu-margin">
+            <select class="form-control" th:field="${airportModel.cityid}"  id="dropOperator">
+                <!--<option value="0" th:text="select operator" ></option>-->
+                <option th:each="operator : ${cityList}" th:value="${operator.id}" th:text="${operator.name}"></option>
+            </select>
+        </div>
+
+
+
+    </form>
+
+
+
+</div>
+</body>
+</html>

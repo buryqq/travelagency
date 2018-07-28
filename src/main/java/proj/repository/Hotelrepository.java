@@ -3,10 +3,10 @@ package proj.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import proj.model.Testmodel;
+import proj.model.Hotel;
 
 
 @Repository
-public interface Testrepository extends JpaRepository<Testmodel,Long> {
+public interface Hotelrepository extends JpaRepository<Hotel,Long> {
 
 }
