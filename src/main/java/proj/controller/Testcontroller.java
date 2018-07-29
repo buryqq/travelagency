@@ -17,6 +17,7 @@ import proj.service.Testservice;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @Controller
 public class Testcontroller {
 
@@ -40,12 +41,15 @@ public class Testcontroller {
 
             RestTemplate restTemplate = new RestTemplate();
             ExchangeRateSeries test = restTemplate.getForObject("http://api.nbp.pl/api/exchangerates/rates/A/EUR", ExchangeRateSeries.class, 200);
-
             Rates[] listarates =test.getRates();
             KursEuro kursEuro = new KursEuro(Double.parseDouble(listarates[0].getMid()));
+
+
+
             ListaKursowResponse listaKursowResponse = ListaKursowResponse.builder()
                     .kursy(kursEuro)
                     .build();
+
             return ResponseEntity.ok(listaKursowResponse);
         }
 

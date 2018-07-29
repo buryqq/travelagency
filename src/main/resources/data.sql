@@ -12,3 +12,4 @@ INSERT INTO airport VALUES (777,'lublinek',666);
 INSERT INTO airport VALUES (778,'okecie',667);
 INSERT INTO airport VALUES (779,'lax',668);
 INSERT INTO airport VALUES (780,'heathrow',669);
+INSERT INTO airport VALUES (781,'stansted',669);

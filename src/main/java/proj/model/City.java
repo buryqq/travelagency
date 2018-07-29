@@ -1,5 +1,6 @@
 package proj.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,7 +15,7 @@ public class City {
    private Long id;
    private String name;
 
-
+@JsonIgnore
    @OneToMany(mappedBy = "cityid")
    private List<Airport> airports;
 
