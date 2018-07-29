@@ -21,6 +21,8 @@ public class City {
     @ManyToOne
     private Country countryid;
 
-
+    public String getName() {
+        return name;
+    }
 
 }

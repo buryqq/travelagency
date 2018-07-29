@@ -26,6 +26,22 @@
 </table>
 
 
+<h2>Searched Airports</h2>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>cityid</th>
+    </tr>
+    <tr th:each = "searchedAirport: ${search}">
+        <td th:text="${searchedAirport.id}"></td>
+
+        <td th:text="${searchedAirport.name}"></td>
+        <td th:text="${searchedAirport.cityid.name}"></td>
+    </tr>
+</table>
+
+
 
 </body>
 </html>
