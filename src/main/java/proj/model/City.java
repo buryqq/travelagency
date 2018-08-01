@@ -15,7 +15,7 @@ public class City {
    private Long id;
    private String name;
 
-@JsonIgnore
+//@JsonIgnore
    @OneToMany(mappedBy = "cityid")
    private List<Airport> airports;
 

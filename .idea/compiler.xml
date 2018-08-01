@@ -8,7 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Finalproject1" />
+        <module name="travelagency" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="travelagency" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -10,10 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import proj.model.Airport;
+import proj.model.AirportResponse;
 import proj.service.Airportservice;
 import proj.service.Cityservice;
 
 
+import java.util.LinkedList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -42,8 +44,24 @@ public class Airportcontroller {
 
         List<Airport> listalotnisk;
         listalotnisk=airportservice.listAirportsByCityName(cityname);
+
+List<AirportResponse> airportListResponse= new LinkedList<>();
+
+        for (Airport a: listalotnisk
+             ) {
+
+            AirportResponse ar = new AirportResponse(a.getId(),a.getName(),a.getCityid().getId(),a.getCityid().getName());
+            airportListResponse.add(ar);
+
+
+
+
+        }
+
+
+
         ListaLotniskResponse listaLotniskResponse = ListaLotniskResponse.builder()
-                .listalotnisk(listalotnisk)
+                .airportListResponse(airportListResponse)
                 .build();
 
         return ResponseEntity.ok(listaLotniskResponse);
@@ -53,7 +71,7 @@ public class Airportcontroller {
     @Builder
     private static class ListaLotniskResponse {
         @Singular("listalotnisk")
-        private List<Airport> listalotnisk;
+        private List<AirportResponse> airportListResponse;
     }
 
 
