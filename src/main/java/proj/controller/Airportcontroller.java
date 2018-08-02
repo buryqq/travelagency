@@ -43,7 +43,10 @@ public class Airportcontroller {
     public ResponseEntity<ListaLotniskResponse> airportall(@RequestParam(value = "cityname", required = false) String cityname) {
 
         List<Airport> listalotnisk;
+        List<Airport> listalotniskall;
+
         listalotnisk=airportservice.listAirportsByCityName(cityname);
+        listalotniskall=airportservice.getAll();
 
 List<AirportResponse> airportListResponse= new LinkedList<>();
 
@@ -58,10 +61,22 @@ List<AirportResponse> airportListResponse= new LinkedList<>();
 
         }
 
+        List<AirportResponse> airportListResponse2= new LinkedList<>();
+
+        for (Airport a: listalotniskall
+                ) {
+
+            AirportResponse ar = new AirportResponse(a.getId(),a.getName(),a.getCityid().getId(),a.getCityid().getName());
+            airportListResponse2.add(ar);
+
+
+
+
+        }
 
 
         ListaLotniskResponse listaLotniskResponse = ListaLotniskResponse.builder()
-                .airportListResponse(airportListResponse)
+                .airportListResponse(airportListResponse).airportListResponse2(airportListResponse2)
                 .build();
 
         return ResponseEntity.ok(listaLotniskResponse);
@@ -72,7 +87,13 @@ List<AirportResponse> airportListResponse= new LinkedList<>();
     private static class ListaLotniskResponse {
         @Singular("listalotnisk")
         private List<AirportResponse> airportListResponse;
+        @Singular("listalotnisk2")
+        private List<AirportResponse> airportListResponse2;
+
+
     }
+
+
 
 
 

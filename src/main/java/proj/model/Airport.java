@@ -1,6 +1,5 @@
 package proj.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
