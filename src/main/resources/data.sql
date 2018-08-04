@@ -22,9 +22,6 @@ INSERT INTO airport VALUES (780,'heathrow',669);
 INSERT INTO airport VALUES (781,'stansted',669);
 
 
-INSERT INTO trip VALUES (1234,'stansted','lublinek','Lodz',5,2,'2014-02-02','example desciption','Grand',234.34,324.34,true,'2014-03-03',2);
-INSERT INTO trip VALUES (2345,'heathrow','okecie','Wawa',7,4,'2015-04-04','example desciption number two','Mariott',444.34,555.34,false,'2015-07-07',3);
-
 
 INSERT INTO continent VALUES (33,'europa');
 INSERT INTO continent VALUES (44,'afryka');
@@ -39,3 +36,9 @@ INSERT INTO hotel VALUES (13,668,'yet another example hotel description','Hilton
 INSERT INTO purchased_trip VALUES (155,2,'example owner',1234);
 INSERT INTO purchased_trip VALUES (166,3,'another example owner',1234);
 INSERT INTO purchased_trip VALUES (177,2,'yet another example owner',2345);
+
+
+
+INSERT INTO trip VALUES (1234,5,2,'2014-02-02','example desciption',234.34,324.34,true,'2014-03-03',2,777,779,668,12);
+INSERT INTO trip VALUES (2345,7,4,'2015-04-04','example desciption number two',444.34,555.34,false,'2015-07-07',3,779,781,669,11);
+

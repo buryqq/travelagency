@@ -3,6 +3,7 @@ package proj.controller;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Singular;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import proj.model.Airport;
 import proj.model.AirportResponse;
+import proj.model.City;
 import proj.service.Airportservice;
 import proj.service.Cityservice;
 
@@ -18,8 +20,9 @@ import proj.service.Cityservice;
 import java.util.LinkedList;
 import java.util.List;
 
+@Slf4j
 @CrossOrigin(origins = "http://localhost:4200")
-@Controller
+@RestController
 public class Airportcontroller {
 
     @Autowired
@@ -98,18 +101,41 @@ List<AirportResponse> airportListResponse= new LinkedList<>();
 
 
 
+//    @RequestMapping(value = "/airportadd", method = RequestMethod.POST)
+//    public String saveAirport(@ModelAttribute("airportadd")  Airport airport,
+//                                   BindingResult result, Model model ) {
+//        airportservice.save(airport);
+//            return "redirect:/airports" ;
+//    }
+
     @RequestMapping(value = "/airportadd", method = RequestMethod.POST)
-    public String saveAirport(@ModelAttribute("airportadd")  Airport airport,
-                                   BindingResult result, Model model ) {
-        airportservice.save(airport);
-            return "redirect:/airports" ;
+    public void saveAirport( @RequestBody AirportResponse airport ) {
+
+
+        log.info(airport.toString());
+
+Airport a = new Airport();
+
+
+
+City city = cityservice.getcitybyid(airport.getCityid());
+
+
+a.setCityid(city);
+a.setName(airport.getName());
+
+        airportservice.save(a);
+
     }
 
-    @RequestMapping(value = "/airportadd", method = RequestMethod.GET)
-    public String showAddAirport(Model model, Airport airport) {
-     model.addAttribute("airportModel",airport);
-        model.addAttribute("cityList", cityservice.getAll());
-        return "airportAdd";
-    }
+
+
+
+//    @RequestMapping(value = "/airportadd", method = RequestMethod.GET)
+//    public String showAddAirport(Model model, Airport airport) {
+//     model.addAttribute("airportModel",airport);
+//        model.addAttribute("cityList", cityservice.getAll());
+//        return "airportAdd";
+//    }
 
 }

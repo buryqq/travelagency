@@ -21,6 +21,13 @@ private Cityrepository cityrepository;
 
     }
 
+
+    public City getcitybyid(Long id) {
+
+        return cityrepository.findOne(id);
+
+    }
+
     public void save(City city) {
 
          cityrepository.save(city);

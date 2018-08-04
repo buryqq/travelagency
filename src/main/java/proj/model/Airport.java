@@ -13,6 +13,7 @@ public class Airport {
    private Long id;
    private String name;
 
+
    @ManyToOne
    @JoinColumn(name="cityid")
    private City cityid;

@@ -42,7 +42,7 @@ List<TripResponse> tripListResponse= new LinkedList<>();
         for (Trip a: triplist
              ) {
 
-            TripResponse ar = new TripResponse(a.getId(),a.getAirportFrom(),a.getAirportTo(),a.getHotelTo(),a.getCityTo(),a.getDepartureDate(),a.getReturnDate(),a.getCountOfDays(),a.getType(),a.getPriceForAdult(),a.getPriceForChild(),a.isPromotion(),a.getCountOfPeople(),a.getDescription());
+            TripResponse ar = new TripResponse(a.getId(),a.getAirportFrom().getName(),a.getAirportTo().getName(),a.getHotelTo().getName(),a.getCityTo().getName(),a.getDepartureDate(),a.getReturnDate(),a.getCountOfDays(),a.getType(),a.getPriceForAdult(),a.getPriceForChild(),a.isPromotion(),a.getCountOfPeople(),a.getDescription());
             tripListResponse.add(ar);
 
 

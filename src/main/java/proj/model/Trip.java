@@ -2,9 +2,7 @@ package proj.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -14,10 +12,18 @@ public class Trip {
     @Id
     @GeneratedValue
     private Long id;
-    private String airportFrom;
-    private String airportTo;
-    private String hotelTo;
-    private String cityTo;
+    @ManyToOne
+    @JoinColumn(name="airport_from")
+    private Airport airportFrom;
+    @ManyToOne
+    @JoinColumn(name="airport_to")
+    private Airport airportTo;
+    @ManyToOne
+    @JoinColumn(name="hotel_to")
+    private Hotel hotelTo;
+    @ManyToOne
+    @JoinColumn(name="city_to")
+    private City cityTo;
     private Date departureDate;
     private Date returnDate;
     private int countOfDays;
